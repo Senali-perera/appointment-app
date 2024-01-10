@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import {Appointment} from "../models/appointment";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-appointment-list',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './appointment-list.component.html',
   styleUrl: './appointment-list.component.css'
 })
 export class AppointmentListComponent {
-
-  appointment: Appointment = {
-    id: 1,
-    title: "Take dog for a walk",
-    date: new Date('2023-10-07')
-  }
+  newAppointmentTitle : string = "";
+  newAppointmentDate : Date = new Date();
+  appointment: Appointment[] = []
 
 
 }
