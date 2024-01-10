@@ -14,7 +14,10 @@ import { FormsModule } from '@angular/forms';
 export class AppointmentListComponent {
   newAppointmentTitle : string = "";
   newAppointmentDate : Date = new Date();
+
   appointment: Appointment[] = []
 
-
+  addAppointment(){
+    alert(this.newAppointmentTitle + " " + this.newAppointmentDate)
+  }
 }
