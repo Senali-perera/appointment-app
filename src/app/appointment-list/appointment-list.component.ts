@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import {Appointment} from "../models/appointment";
 import { FormsModule } from '@angular/forms';
+import {DatePipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-appointment-list',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    DatePipe,
+    NgForOf
   ],
   templateUrl: './appointment-list.component.html',
   styleUrl: './appointment-list.component.css'
