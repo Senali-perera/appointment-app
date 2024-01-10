@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Appointment} from "../models/appointment";
 import { FormsModule } from '@angular/forms';
 import {DatePipe, NgForOf} from "@angular/common";
+import {OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-appointment-list',
@@ -14,11 +15,16 @@ import {DatePipe, NgForOf} from "@angular/common";
   templateUrl: './appointment-list.component.html',
   styleUrl: './appointment-list.component.css'
 })
-export class AppointmentListComponent {
+export class AppointmentListComponent implements OnInit {
   newAppointmentTitle : string = "";
   newAppointmentDate : Date = new Date();
 
   appointments: Appointment[] = []
+
+  ngOnInit(): void{
+    let savedAppointments = localStorage.getItem("appointments");
+    this.appointments = savedAppointments ? JSON.parse(savedAppointments) : [];
+  }
 
   addAppointment(){
     if(this.newAppointmentTitle.trim().length && this.newAppointmentDate){
